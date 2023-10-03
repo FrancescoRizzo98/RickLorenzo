@@ -25,3 +25,18 @@ jobs:
 
       - name: Build
         run: npm run build
+      
+      - name: Setup Github Pages
+        uses: actions/configura-pages@v3
+
+      - name: Install dependencies
+        uses: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Artifacts
+        uses: actions/upload-artifact@v2
+        with: 
+          name: build
+          path: ./out
